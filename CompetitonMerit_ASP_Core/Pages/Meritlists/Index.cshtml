@@ -1,0 +1,54 @@
+﻿@page
+@model CompetitonMerit_ASP_Core.Pages.Meritlists.IndexModel
+
+@{
+    ViewData["Title"] = "Merit List";
+}
+
+<h1>Merit List</h1>
+
+<p>
+    <a asp-page="Create">Create Merit List</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Student Participate
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meritlist[0].School)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meritlist[0].Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meritlist[0].Marks)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Meritlist) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student_participate.Student_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.School.School_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject.Subject_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marks)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

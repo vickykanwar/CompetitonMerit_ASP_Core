@@ -1,0 +1,48 @@
+﻿@page
+@model CompetitonMerit_ASP_Core.Pages.Subjects.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1> Subjects </h1>
+
+<p>
+    <a asp-page="Create">Add New Subject</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Subject Name
+            </th>
+            <th>
+                Subject Description
+            </th>
+            <th>
+                Subject Language
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Subject) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject_description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject_language)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Update</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

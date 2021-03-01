@@ -1,0 +1,60 @@
+﻿@page
+@model CompetitonMerit_ASP_Core.Pages.Student_participates.IndexModel
+
+@{
+    ViewData["Title"] = "Participants Data";
+}
+
+<h1>Participants</h1>
+
+<p>
+    <a asp-page="Create">Add New Participants</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Student Name
+            </th>
+            <th>
+                Student Age
+            </th>
+            <th>
+                Student Mobile No.
+            </th>
+            <th>
+                Student Address
+            </th>
+            <th>
+                Student's Father Name 
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Student_participate) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student_age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Father_Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

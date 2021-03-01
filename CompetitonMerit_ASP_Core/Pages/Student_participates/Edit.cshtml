@@ -1,0 +1,55 @@
+﻿@page
+@model CompetitonMerit_ASP_Core.Pages.Student_participates.EditModel
+
+@{
+    ViewData["Title"] = "Update Participants";
+}
+
+<h1>Update Participants</h1>
+
+<h4>Add or Delete the Info of the participant, whom you want to Update</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Student_participate.Id" />
+            <div class="form-group">
+                <label asp-for="Student_participate.Student_Name" class="control-label">Student Name</label>
+                <input asp-for="Student_participate.Student_Name" class="form-control" />
+                <span asp-validation-for="Student_participate.Student_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student_participate.Student_age" class="control-label">Student Age</label>
+                <input asp-for="Student_participate.Student_age" class="form-control" />
+                <span asp-validation-for="Student_participate.Student_age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student_participate.Mobile_Number" class="control-label">Student Mobile No.</label>
+                <input asp-for="Student_participate.Mobile_Number" class="form-control" />
+                <span asp-validation-for="Student_participate.Mobile_Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student_participate.Student_Address" class="control-label">Student's Address</label>
+                <input asp-for="Student_participate.Student_Address" class="form-control" />
+                <span asp-validation-for="Student_participate.Student_Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student_participate.Father_Name" class="control-label">Student's Father Name</label>
+                <input asp-for="Student_participate.Father_Name" class="form-control" />
+                <span asp-validation-for="Student_participate.Father_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

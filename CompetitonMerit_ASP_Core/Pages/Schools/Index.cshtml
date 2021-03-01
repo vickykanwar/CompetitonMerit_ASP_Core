@@ -1,0 +1,54 @@
+﻿@page
+@model CompetitonMerit_ASP_Core.Pages.Schools.IndexModel
+
+@{
+    ViewData["Title"] = "School Data";
+}
+
+<h1>School Data</h1>
+
+<p>
+    <a asp-page="Create">Add NewSchool</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                School Name
+            </th>
+            <th>
+               School Address
+            </th>
+            <th>
+                School Mobile No.
+            </th>
+            <th>
+                School Webite
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.School) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.School_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.School_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.School_Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.School_Webite)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Update</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

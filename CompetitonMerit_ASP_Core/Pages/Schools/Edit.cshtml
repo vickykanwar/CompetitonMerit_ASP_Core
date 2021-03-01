@@ -1,0 +1,50 @@
+﻿@page
+@model CompetitonMerit_ASP_Core.Pages.Schools.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Update School</h1>
+
+<h4></h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="School.Id" />
+            <div class="form-group">
+                <label asp-for="School.School_Name" class="control-label">School Name</label>
+                <input asp-for="School.School_Name" class="form-control" />
+                <span asp-validation-for="School.School_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="School.School_Address" class="control-label">School Address</label>
+                <input asp-for="School.School_Address" class="form-control" />
+                <span asp-validation-for="School.School_Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="School.School_Mobile" class="control-label">School Mobile No.</label>
+                <input asp-for="School.School_Mobile" class="form-control" />
+                <span asp-validation-for="School.School_Mobile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="School.School_Webite" class="control-label">School Website</label>
+                <input asp-for="School.School_Webite" class="form-control" />
+                <span asp-validation-for="School.School_Webite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
